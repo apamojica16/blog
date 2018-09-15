@@ -1,0 +1,33 @@
+// Place all the styles related to the articulos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.table-encabezado{
+
+    width: 400;
+    height: 60;
+}
+
+.table-items{
+    width: 120px;
+    height: 60px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+   background: #294e70;
+    width: 100%;
+    font-size: 100% ;
+}
+
+td, th {
+    height: 80px;
+ 
+    font-size: 100% ;
+       text-align: center;
+    padding: 15px;
+ 
+}
+
+tr:nth-child(even) {
+ background: #2f5b83;   
+}

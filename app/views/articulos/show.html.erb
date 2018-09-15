@@ -1,0 +1,46 @@
+<p>
+<strong>Title:</strong>
+<%= @articulo.title %>
+</p>
+
+<p>
+<strong>Text:</strong>
+<%= @articulo.text %>
+</p>
+<p>
+<%= link_to 'Volver', controller:'articulos', action:'new' %> 
+</p>
+<%= link_to 'Editar', edit_articulo_path(@articulo)%>
+
+<h2> Comentarios</h2>
+<% @articulo.comentarios.each do |comentario| %>
+    <p>
+<strong> Comenta: </strong>
+<%= comentario.nombre %>
+    </p>
+    <p>
+    <strong> Comentario: </strong>
+    <%= comentario.cuerpo %>
+    </p>
+    <p>
+    <%= link_to 'Eliminar comentario', [comentario.articulo, comentario], method: :delete, data: {confirm: '¿Realmente desea eliminar el comentario?'} %>
+    </p>
+
+<%end%>
+<h2> Agregar Comentario</h2>
+
+<%= form_with model:[@articulo, @articulo.comentarios.build], local:true do |form| %>
+<p>
+<%= form.label:nombre %><br>
+<%= form.text_field:nombre %>
+</p>
+
+<p>
+<%= form.label:cuerpo %>
+<%= form.text_area:cuerpo%>
+</p>
+
+<p>
+<%= form.submit %>
+</p>
+<%end%>

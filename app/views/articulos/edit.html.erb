@@ -1,0 +1,41 @@
+<h1> Edición Articulos</h1>
+
+<%= form_with(model:@articulo, local:true) do |form| %>
+    <% if @articulo.errors.any? %>
+    <div id="error_explanation">
+     <h2>
+     <%= pluralize(@articulo.errors.count, "error") %> Descripción:
+     </h2>
+    </div>
+    <ul>
+    <% @articulo.errors.full_messages.each do |msg| %>
+        <li>
+        <%= msg %>
+        </li>
+        <%end%>
+
+    </ul>
+    </div>
+    <%end%>
+<p> 
+<%= form.label:title %><br>
+<%= form.text_field:title %>
+</p>
+
+<p>
+<%= form.label:text %><br>
+<%= form.text_area:text %>
+</p>
+<p>
+<%= form.submit"Modificar" %>
+</p>
+<%end%>
+
+<%= render 'form' %>
+
+<p>
+<%= link_to 'Principal', controller:'bienvenido' %> 
+</p>
+
+
+

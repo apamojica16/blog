@@ -1,0 +1,41 @@
+<h1>Nuevo Articulo</h1>
+
+<%= form_with scope: :articulo, url:articulos_path,local: true do |form| %>
+    <% if @articulo.errors.any? %>
+    <div id="error_explanation">
+     <h2>
+     <%= pluralize(@articulo.errors.count, "error") %> Descripción:
+     </h2>
+    </div>
+    <ul>
+    <% @articulo.errors.full_messages.each do |msg| %>
+        <li>
+        <%= msg %>
+        </li>
+        <%end%>
+
+    </ul>
+    </div>
+    <%end%>
+<p> 
+<%= form.label:Titulo %><br>
+<%= form.text_field:title %>
+</p>
+
+<p>
+<%= form.label:Texto %><br>
+<%= form.text_area:text %>
+</p>
+
+<p>
+<%= form.submit"Guardar" %>
+</p>
+<%end%>
+<%= render 'form' %>
+
+<p>
+<%= link_to 'Principal', controller:'bienvenido' %> 
+</p>
+<%= link_to 'Ver todos', controller:'articulos' %> 
+
+
